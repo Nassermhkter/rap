@@ -1,0 +1,83 @@
+{
+  "entities": {
+    "Artist": {
+      "title": "Artist",
+      "description": "A rap artist in the culture.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "The artist name." },
+        "bio": { "type": "string", "description": "Short biography." },
+        "image": { "type": "string", "description": "URL to the artist image." },
+        "specialty": { "type": "string", "description": "Artist specialty (e.g. Old School, Trap)." },
+        "socials": {
+          "type": "object",
+          "properties": {
+            "instagram": { "type": "string" },
+            "twitter": { "type": "string" },
+            "spotify": { "type": "string" }
+          }
+        }
+      },
+      "required": ["name", "image"]
+    },
+    "Track": {
+      "title": "Track",
+      "description": "A music track/song.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "artistId": { "type": "string", "description": "ID of the artist." },
+        "artistName": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "audioUrl": { "type": "string" },
+        "duration": { "type": "string" },
+        "genre": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "artistName", "audioUrl"]
+    },
+    "News": {
+      "title": "News",
+      "description": "A news article about the rap scene.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "content": { "type": "string" },
+        "image": { "type": "string" },
+        "category": { "type": "string" },
+        "date": { "type": "string" },
+        "author": { "type": "string" }
+      },
+      "required": ["title", "content", "image"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Application administrators.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "uid": { "type": "string" }
+      },
+      "required": ["email", "uid"]
+    }
+  },
+  "firestore": {
+    "artists": {
+      "schema": "Artist",
+      "description": "Collection of rap artists."
+    },
+    "tracks": {
+      "schema": "Track",
+      "description": "Collection of music tracks."
+    },
+    "news": {
+      "schema": "News",
+      "description": "Collection of news articles."
+    },
+    "admins": {
+      "schema": "Admin",
+      "description": "Collection of administrator UIDs."
+    }
+  }
+}

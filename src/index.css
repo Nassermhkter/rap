@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-bento-accent: #CCFF00;
+  --color-bento-bg: #050505;
+  --color-bento-card: #111111;
+  --color-bento-active: #1A1A1A;
+  --color-bento-border: #333333;
+  --color-bento-text: #F0F0F0;
+  
+  --shadow-bento: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@layer base {
+  body {
+    @apply bg-bento-bg text-bento-text antialiased;
+    direction: rtl;
+  }
+}
+
+.graffiti-text {
+  @apply font-black italic tracking-tighter uppercase;
+}
+
+.bento-card {
+  @apply bg-bento-card border-2 border-bento-border hover:border-bento-accent transition-all duration-300;
+}
+
+.accent-border {
+  @apply border-2 border-bento-accent;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, minmax(200px, auto));
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
